@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PARK//AI — Smart Parking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="background-grid"></div>
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="brand">
+        <div class="brand-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div>
+            <div class="brand-name">PARK<span>//</span>AI</div>
+            <div class="brand-sub">SMART MOBILITY SYSTEM</div>
+        </div>
+    </div>
+
+    <div class="nav-status">
+        <span class="status-dot"></span>
+        SYSTEM ONLINE
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span></span>
+            INTELLIGENT PARKING
+        </div>
+
+        <h1>
+            PARK
+            <em>WITHOUT</em>
+            THE GUESSWORK.
+        </h1>
+
+        <p>
+            Tell us about your vehicle. PARK//AI finds the most suitable
+            space and guides your car there automatically.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="scrollToFinder()">
+                <span>FIND MY SPACE</span>
+                <b>↗</b>
+            </button>
+
+            <button class="ghost-btn" onclick="scrollToMap()">
+                VIEW PARKING
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO CAR -->
+    <div class="hero-visual">
+
+        <div class="radar radar-1"></div>
+        <div class="radar radar-2"></div>
+        <div class="radar radar-3"></div>
+
+        <div class="hero-car-wrap">
+
+            <div class="car-shadow"></div>
+
+            <div class="hero-car">
+
+                <div class="car-roof"></div>
+
+                <div class="car-window window-left"></div>
+                <div class="car-window window-right"></div>
+
+                <div class="car-body"></div>
+
+                <div class="headlight left"></div>
+                <div class="headlight right"></div>
+
+                <div class="wheel wheel-left"></div>
+                <div class="wheel wheel-right"></div>
+
+                <div class="car-line"></div>
+
+            </div>
+
+        </div>
+
+        <div class="scan-line"></div>
+
+        <div class="hero-coordinate">
+            <span>LIVE ENVIRONMENT</span>
+            <strong>01 / 16</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+<section class="stats-section">
+
+    <div class="stat-card">
+        <div class="stat-icon">▦</div>
+        <div>
+            <span>TOTAL SPACES</span>
+            <strong id="totalSlots">16</strong>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon available-icon">●</div>
+        <div>
+            <span>AVAILABLE</span>
+            <strong id="availableSlots">11</strong>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon occupied-icon">●</div>
+        <div>
+            <span>OCCUPIED</span>
+            <strong id="occupiedSlots">5</strong>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon ev-icon">ϟ</div>
+        <div>
+            <span>EV SPACES</span>
+            <strong id="evSlots">4</strong>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- FINDER -->
+<section class="finder-section" id="finder">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-number">01</span>
+            <h2>Tell us about your ride</h2>
+        </div>
+
+        <p>
+            We'll handle the rest.
+        </p>
+
+    </div>
+
+
+    <div class="finder-layout">
+
+        <!-- FORM -->
+        <div class="vehicle-panel">
+
+            <div class="panel-top">
+                <div>
+                    <span class="mini-label">VEHICLE PROFILE</span>
+                    <h3>Configure vehicle</h3>
+                </div>
+
+                <div class="vehicle-number">01</div>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Vehicle ID</label>
+                    <div class="input-wrapper">
+                        <span>#</span>
+                        <input
+                            type="text"
+                            id="vehicleId"
+                            value="CAR-01"
+                            maxlength="12"
+                        >
+                    </div>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Vehicle type</label>
+
+                    <div class="select-wrapper">
+                        <select id="vehicleType">
+                            <option value="Car">Car</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Bike">Bike</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+                    <label>Vehicle size</label>
+
+                    <div class="size-options">
+
+                        <button class="size-btn active" data-size="Small">
+                            <span>SM</span>
+                            SMALL
+                        </button>
+
+                        <button class="size-btn" data-size="Medium">
+                            <span>MD</span>
+                            MEDIUM
+                        </button>
+
+                        <button class="size-btn" data-size="Large">
+                            <span>LG</span>
+                            LARGE
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Special requirements</label>
+
+                    <div class="toggle-row">
+
+                        <label class="toggle-item">
+                            <input type="checkbox" id="evRequired">
+                            <span class="toggle-switch"></span>
+                            <div>
+                                <strong>EV</strong>
+                                <small>Charging needed</small>
+                            </div>
+                        </label>
+
+
+                        <label class="toggle-item">
+                            <input type="checkbox" id="accessibleRequired">
+                            <span class="toggle-switch"></span>
+                            <div>
+                                <strong>ACCESS</strong>
+                                <small>Accessible space</small>
+                            </div>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="find-btn" id="findButton" onclick="findParking()">
+
+                <div class="btn-car">➜</div>
+
+                <span>FIND MY PARKING SPACE</span>
+
+                <div class="btn-arrow">→</div>
+
+            </button>
+
+
+            <div class="smart-note">
+                <span>✦</span>
+                Your preferences will be considered automatically.
+            </div>
+
+        </div>
+
+
+        <!-- DECISION CARD -->
+        <div class="decision-panel">
+
+            <div class="decision-header">
+                <div>
+                    <span class="mini-label">PARKING ASSIST</span>
+                    <h3 id="decisionTitle">Ready when you are</h3>
+                </div>
+
+                <div class="pulse-status">
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="decision-visual">
+
+                <div class="decision-ring ring-a"></div>
+                <div class="decision-ring ring-b"></div>
+                <div class="decision-ring ring-c"></div>
+
+                <div class="decision-car">🚗</div>
+
+                <div class="decision-center">
+                    <span id="decisionNumber">--</span>
+                    <small>SPACE</small>
+                </div>
+
+            </div>
+
+
+            <div class="decision-info">
+
+                <div class="decision-placeholder" id="decisionPlaceholder">
+                    <strong>Waiting for vehicle</strong>
+                    <span>Enter your details to begin.</span>
+                </div>
+
+
+                <div class="decision-result hidden" id="decisionResult">
+
+                    <div class="selected-space">
+                        <span>BEST MATCH</span>
+                        <strong id="selectedSlotName">P-02</strong>
+                    </div>
+
+                    <div class="match-score">
+                        <strong id="matchPercent">98%</strong>
+                        <span>MATCH</span>
+                    </div>
+
+                </div>
+
+
+                <div class="reason-list" id="reasonList">
+
+                    <div>
+                        <span>01</span>
+                        <p>Waiting for vehicle information</p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <p>Parking spaces will be checked</p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <p>Best available option will be selected</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PARKING MAP -->
+<section class="map-section" id="parkingMap">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-number">02</span>
+            <h2>Parking environment</h2>
+        </div>
+
+        <div class="map-live">
+            <span></span>
+            LIVE VIEW
+        </div>
+
+    </div>
+
+
+    <div class="parking-environment">
+
+        <!-- Entrance -->
+        <div class="entrance">
+            <span>ENTRANCE</span>
+            <div class="road-arrow">↓</div>
+        </div>
+
+
+        <!-- Parking Area -->
+        <div class="parking-area">
+
+            <div class="lane-label lane-top">
+                <span>A</span>
+                ENTRY LANE
+            </div>
+
+
+            <div class="parking-grid" id="parkingGrid">
+                <!-- Generated by JavaScript -->
+            </div>
+
+
+            <div class="lane-center">
+
+                <div class="lane-line"></div>
+
+                <div class="lane-car" id="movingCar">
+
+                    <div class="mini-car-body">
+                        <div class="mini-car-window"></div>
+                        <div class="mini-wheel left"></div>
+                        <div class="mini-wheel right"></div>
+                    </div>
+
+                </div>
+
+                <div class="route-light" id="routeLight"></div>
+
+            </div>
+
+
+            <div class="lane-label lane-bottom">
+                <span>B</span>
+                EXIT LANE
+            </div>
+
+        </div>
+
+
+        <!-- Exit -->
+        <div class="exit">
+            <div class="road-arrow">↑</div>
+            <span>EXIT</span>
+        </div>
+
+    </div>
+
+
+    <!-- LEGEND -->
+    <div class="map-legend">
+
+        <div>
+            <span class="legend-box free"></span>
+            Available
+        </div>
+
+        <div>
+            <span class="legend-box occupied"></span>
+            Occupied
+        </div>
+
+        <div>
+            <span class="legend-box ev"></span>
+            EV
+        </div>
+
+        <div>
+            <span class="legend-box access"></span>
+            Accessible
+        </div>
+
+        <div>
+            <span class="legend-box selected"></span>
+            Your space
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LIVE ASSIST -->
+<section class="assist-section">
+
+    <div class="assist-card">
+
+        <div class="assist-icon">
+            ✦
+        </div>
+
+        <div class="assist-content">
+            <span>LIVE PARKING ASSIST</span>
+            <strong id="assistMessage">
+                Waiting for your vehicle...
+            </strong>
+        </div>
+
+        <div class="assist-wave">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MULTI VEHICLE -->
+<section class="queue-section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-number">03</span>
+            <h2>Vehicle queue</h2>
+        </div>
+
+        <button class="small-add-btn" onclick="addVehicleToQueue()">
+            + ADD VEHICLE
+        </button>
+
+    </div>
+
+
+    <div class="queue-layout">
+
+        <div class="queue-list" id="vehicleQueue">
+
+            <div class="empty-queue">
+                <div>＋</div>
+                <span>No vehicles waiting</span>
+                <small>Add vehicles to allocate spaces together.</small>
+            </div>
+
+        </div>
+
+
+        <div class="queue-action">
+
+            <div>
+                <span>READY</span>
+                <strong id="queueCount">0</strong>
+            </div>
+
+            <button onclick="allocateAllVehicles()">
+                ALLOCATE ALL
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ACTIVITY -->
+<section class="activity-section">
+
+    <div class="activity-header">
+
+        <div>
+            <span class="mini-label">SYSTEM ACTIVITY</span>
+            <h3>Recent parking decisions</h3>
+        </div>
+
+        <span class="activity-live">
+            LIVE
+        </span>
+
+    </div>
+
+
+    <div class="activity-list" id="historyList">
+
+        <div class="no-history">
+            No parking decisions yet.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-brand">
+        PARK<span>//</span>AI
+    </div>
+
+    <div>
+        INTELLIGENT MOBILITY • 2026
+    </div>
+
+</footer>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+    <div class="toast-icon">✓</div>
+    <div>
+        <strong id="toastTitle">Space found</strong>
+        <span id="toastMessage">Your parking space is ready.</span>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
